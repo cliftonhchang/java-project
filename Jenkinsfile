@@ -3,14 +3,20 @@ properties([pipelineTriggers([githubPush()])])
 node('linux'){
     stage('Build'){
         git 'https://github.com/cliftonhchang/java-project.git'
-        sh "ant"
+        sh "ant -f build.xml -v"
     }
     
     stage('Test'){
-        sh "ant -buildfile test.xml"
+        sh "ant -f test.xml -v"
+        junit 'reports/*.xml'
     }
     
+    stage('Deploy'){
+        aws s3 cp rectangle-12.jar s3://s3-seis665-cliftonhchang-hw10/rectangle-12.jar
+    }       
+    
     stage('Reports'){
-        junit 'reports/*.xml'
+        aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins
+        
     }
 }
