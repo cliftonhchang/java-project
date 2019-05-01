@@ -12,7 +12,7 @@ node('linux'){
     }
     
     stage('Deploy'){
-        sh "aws s3 cp rectangle-18.jar s3://s3-seis665-cliftonhchang-hw10/rectangle-18.jar"
+        sh "aws s3 cp rectangle-*.jar s3://s3-seis665-cliftonhchang-hw10/"
     }       
     
     stage('Reports'){
