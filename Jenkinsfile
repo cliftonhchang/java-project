@@ -12,7 +12,7 @@ node('linux'){
     }
     
     stage('Deploy'){
-        b=System.getenv('BUILD_NUMBER')
+        b="${env.BUILD_NUMBER}"
         sh "aws cp rectangle-${b}.jar s3://s3-seis665-cliftonhchang-hw10/" 
     }       
     
