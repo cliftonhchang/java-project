@@ -13,7 +13,7 @@ node('linux'){
     
     stage('Deploy'){
         b="${env.BUILD_NUMBER}"
-        sh "aws s3 cp rectangle-${b}.jar s3://s3-seis665-cliftonhchang-hw10/" 
+        sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-${b}.jar s3://s3-seis665-cliftonhchang-hw10/" 
     }       
     
     stage('Reports'){
