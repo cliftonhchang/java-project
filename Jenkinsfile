@@ -15,7 +15,6 @@ node('linux'){
         a='rectangle-'
         b=System.getenv('BUILD_NUMBER')
         c= ".jar s3://s3-seis665-cliftonhchang-hw10/"
-        c="$a$b$c"
         sh "aws cp $a$b$c" 
     }       
     
