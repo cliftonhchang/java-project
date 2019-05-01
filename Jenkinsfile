@@ -16,7 +16,7 @@ node('linux'){
     }       
     
     stage('Reports'){
-        aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins
+//        aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins
         
     }
 }
