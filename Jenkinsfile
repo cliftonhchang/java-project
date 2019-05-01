@@ -12,7 +12,7 @@ node('linux'){
     }
     
     stage('Deploy'){
-        sh "aws s3 cp rectangle-" += System.getenv('JOB_NAME') += ".jar s3://s3-seis665-cliftonhchang-hw10/"
+        sh "aws s3 cp rectangle-"  System.getenv('JOB_NAME')  ".jar s3://s3-seis665-cliftonhchang-hw10/"
     }       
     
     stage('Reports'){
